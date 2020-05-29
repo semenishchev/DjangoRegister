@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block title %}Login{% endblock title %}
+{% load crispy_forms_tags %}
+{% block content %}
+{% block name_page %}
+<br>
+<br>
+<br>
+<br>
+<h1 class="my-4">Login</h1>
+{% endblock name_page %}
+<hr>
+<!-- {% if messages %}
+{% for message in messages %}
+<div class="alert alert-{% if message.tags == 'error'%}danger{% else %}{{ message.tags }}{% endif %}" role="alert">
+	{{message}}
+</div>
+{% endfor %}
+{% endif %} -->
+<form method="POST" action="{% url 'register' %}">
+	{% csrf_token %}
+
+    {{form|crispy}}
+    <input name='register' type='submit' value="Register" class="btn btn-primary"></input>
+</form>
+<hr>
+
+<br>
+
+{% endblock content %}
